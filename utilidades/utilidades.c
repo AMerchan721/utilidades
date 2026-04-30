@@ -127,6 +127,37 @@ void vaciarBuffer (void)
   // while (getchar() != '\n')   ; // Bucle vacío
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void borrarPantalla (void);
+//
+//  USO:
+//
+//    Programa que "limpia" o borra la pantalla del terminal.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función limpiarPantalla(), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    Ninguno
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    limpiarPantalla()
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void borrarPantalla (void)
 {
@@ -188,6 +219,40 @@ void bajar (int nlineas)
   }
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void abajo (int nfils);
+//
+//  USO:
+//
+//    Permite bajar el cursor en la pantalla, tantas líneas (o filas, en este caso) como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función limpiarPantalla(), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    nfilas
+//
+//      Variable entera que recibirá del exterior el número de filas
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    bajar(nfils)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void abajo (int nfils)
 {
@@ -218,6 +283,43 @@ void desplazarY (int nfils)
   bajar(nfils);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void indentar (int ncolumnas);
+//
+//  USO:
+//
+//    Permite desplazar hacia la derecha el cursor en la pantalla, tantas tabulacones como se le indique.
+//
+//  DETALLES:
+//
+//    Crea tantas tabulaciones como se le suministre como dato. No ubica el
+//    cursor de texto en ninguna coordenada concreta, sino que genera contenido
+//    en blanco en la pantalla, desplazando el punto donde se escribirá texto en
+//    acciones posteriores. Utiliza para ello un bucle en cuyo interior se llama
+//    a printf() con el código ASCII de salto de línea '\n' ó 0x10.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    ncolumnas
+//
+//      Variable entera que recibirá del exterior el número de tabulaciones
+//      que se va a desplazar el cursor hacia la derecha.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    printf()
+//
+//      Es el programa estándar ("prefabricado") que hace la logística de
+//      emitir por pantalla.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void indentar (int ncolumnas)
 {
@@ -227,6 +329,40 @@ void indentar (int ncolumnas)
   }
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void derecha (int ncols);
+//
+//  USO:
+//
+//    Permite desplazar hacia la derecha el cursor en la pantalla, tantas tabulaciones como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función indentar(ncolumnas), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    ncols
+//
+//      Variable entera que recibirá del exterior el número de columnas (tabulaciones)
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    indentar(ncols)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void derecha (int ncols)
 {
@@ -257,6 +393,50 @@ void desplazarH (int ncols)
   indentar(ncols);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void posicionar (int nfils, int ncols)
+//
+//  USO:
+//
+//    Permite desplazar hacia la derecha y hacia abajo el cursor en la pantalla, 
+//    tantas filas y columnas como se le indique.
+//
+//  DETALLES:
+//
+//    Crea tantas tabulaciones y líneas en blanco como se le suministre como dato. No ubica el
+//    cursor de texto en ninguna coordenada concreta, sino que genera contenido
+//    en blanco en la pantalla, desplazando el punto donde se escribirá texto en
+//    acciones posteriores. Utiliza para ello dos funciones ya definidas: bajar(nfils) e tabular(ncols).
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    nfils
+//
+//      Variable entera que recibirá del exterior el número de líneas
+//      que se va a desplazar el cursor hacia abajo.
+//
+//    ncols
+//
+//      Variable entera que recibirá del exterior el número de tabulaciones
+//      que se va a desplazar el cursor hacia la derecha.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    bajar(nfils)
+//
+//      Permite bajar el cursor en la pantalla, tantas líneas como se le indique.
+//
+//    tabular(ncols)
+//
+//      Permite desplazar hacia la derecha el cursor en la pantalla, tantas tabulaciones como se le indique.
+////////////////////////////////////////////////////////////////////////////////
 
 void posicionar (int nfils, int ncols)
 {
@@ -264,6 +444,46 @@ void posicionar (int nfils, int ncols)
   tabular(ncols);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void desplazar (int nfils, int ncols);
+//
+//  USO:
+//
+//    Permite desplazar hacia la derecha y hacia abajo el cursor en la pantalla, 
+//    tantas filas y columnas como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función posicionar (int nfils, int ncols), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    nfils
+//
+//      Variable entera que recibirá del exterior el número de líneas
+//      que se va a desplazar el cursor hacia abajo.
+//
+//    ncols
+//
+//      Variable entera que recibirá del exterior el número de columnas (tabulaciones)
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    void posicionar (int nfils, int ncols)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void desplazar (int nfils, int ncols)
 {
@@ -338,12 +558,72 @@ void esperarMilisegundos (int milisegundos)
   #endif
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void pausa (void);
+//
+//  USO:
+//
+//    Permite establecer una pausa prefijada con una línea en blanco y dos tabulaciones
+//
+//  DETALLES:
+//
+//    Es una pausa para usar en el caso de que no se quiera poner de
+//    nuevo los números 1 y 2. Es decir, es como "pausaEstandar" pero con valores de posición
+//    prefijados. 
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    Ninguno
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    pausaEstandar (1, 2)
+//
+//      Permite colocar el cursor en la posición (1, 2) para que haga una pausa.
+////////////////////////////////////////////////////////////////////////////////
 
 void pausa (void)
 {
   pausaEstandar(1, 2);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void pausaEstandar (int nfils, int ncols);
+//
+//  USO:
+//
+//    Permite establecer una pausa prefijada con un mensaje fijo y la opción de NO cambiar de línea.
+//
+//  DETALLES:
+//
+//    Es una pausa para usar en el caso de que no se quiera poner de
+//    nuevo un mensaje ni una opción de cambio de línea. Es decir, es como
+//    "pausaGenerica" pero con un mensaje y un NO cambio de línea. 
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    Ninguno
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    pausaGenerica(MSJxPAUSA, nfils, ncols, FALSE)
+//
+//      Es una pausa de tipo "genérica" que permite establecerla a través de un mensaje y una posición.
+////////////////////////////////////////////////////////////////////////////////
 
 void pausaEstandar (int nfils, int ncols)
 {

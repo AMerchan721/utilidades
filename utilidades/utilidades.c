@@ -631,6 +631,52 @@ void pausaEstandar (int nfils, int ncols)
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void pausaGenerica (char msjtxt[], int nfils, int ncols, boolean nuevalinea);
+//
+//  USO:
+//
+//    Permite hacer una pausa en el programa mostrando un texto y en una posición elegida.
+//
+//  DETALLES:
+//
+//    Pone en la pantalla el mensaje que se indique, baja las líneas indicadas y 
+//    se mueve a la derecha los espacios pedidos. Después, se queda esperando a que 
+//    el usuario pulse la tecla INTRO para poder seguir con el programa.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      Texto o mensaje que se requiere que salga en la pantalla durante la pausa.
+//    nfils
+//
+//      Número de líneas que va a bajar el texto en la pantalla.
+//    ncols
+//
+//      Número de espacios o columnas que se va a mover el texto a la derecha.
+//    nuevalinea
+//
+//      Opción para elegir si se desea que salte de línea al terminar el texto (TRUE o FALSE).
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    mensaje_x_y()
+//
+//      Se encarga de colocar y escribir el mensaje en su sitio.
+//    esperarINTRO()
+//
+//      Hace que el programa se pare hasta que el usuario pulse INTRO.
+//
+////////////////////////////////////////////////////////////////////////////////
+
 void pausaGenerica (char msjtxt[], int nfils, int ncols, boolean nuevalinea)
 {
   mensaje_x_y(msjtxt, nfils, ncols, nuevalinea);
@@ -639,11 +685,76 @@ void pausaGenerica (char msjtxt[], int nfils, int ncols, boolean nuevalinea)
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void texto (char msjtxt[]);
+//
+//  USO:
+//
+//    Programa que escribe una frase o texto en la pantalla del tirón.
+//
+//  DETALLES:
+//
+//    Escribe en la pantalla el mensaje que se pase y, al terminar de escribirlo, 
+//    hace un salto a la línea de abajo automáticamente. Para hacer esto usa la 
+//    función prefabricada puts().
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      Frase o cadena de texto que se va a mostrar en la pantalla.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    puts()
+//
+//      Es la función estándar que se encarga de mostrar el texto y bajar de línea.
+//
+////////////////////////////////////////////////////////////////////////////////
+
 void texto (char msjtxt[])
 {
   puts(msjtxt);
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void separar (void);
+//
+//  USO:
+//
+//    Programa que sirve para dejar un espacio o línea en blanco.
+//
+//  DETALLES:
+//
+//    Hace un salto de línea normal para separar cosas en la pantalla. Lo hace 
+//    llamando a la función mostrar() pasándole el código de salto de línea '\n'.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    Ninguno
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    mostrar()
+//
+//      Se usa para enviar el salto de línea a la pantalla.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void separar()
 {
@@ -651,11 +762,77 @@ void separar()
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void nuevaLinea (void);
+//
+//  USO:
+//
+//    Programa que hace que el cursor baje exactamente una línea hacia abajo.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función saltar(), a la cual le pasa siempre el número 1 
+//    para no tener que estar escribiéndolo. Es otra forma de llamar a la acción de 
+//    bajar una sola línea.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    Ninguno
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    saltar()
+//
+//      Se le delega el trabajo pasándole un 1 para que baje esa línea.
+//
+////////////////////////////////////////////////////////////////////////////////
+
 void nuevaLinea (void)
 {
   saltar(1);
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void mostrar (char msjtxt[]);
+//
+//  USO:
+//
+//    Programa que muestra un texto en la pantalla sin moverse de donde está el cursor.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función mostrar_x_y(), a la que le pasa un 0 en las 
+//    filas y un 0 en las columnas. Sirve para escribir directamente sin dejar 
+//    márgenes ni espacios extra.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      El mensaje o texto que se desea que aparezca en la pantalla.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    mostrar_x_y()
+//
+//      Se encarga de poner el texto usando la posición (0, 0).
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void mostrar (char msjtxt[])
 {
@@ -663,11 +840,85 @@ void mostrar (char msjtxt[])
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void mostrar_x_y (char msjtxt[], int nfils, int ncols);
+//
+//  USO:
+//
+//    Programa que muestra un texto bajando unas líneas y moviéndose a la derecha.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función mensaje_x_y(). Le pasa las filas y columnas 
+//    que se requiera mover, y le dice que FALSE (que no) a la opción de hacer 
+//    un salto de línea al final del texto.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      El mensaje de texto que se va a mostrar en la pantalla.
+//    nfils
+//
+//      Número de líneas que se desea bajar antes de escribir.
+//    ncols
+//
+//      Número de columnas o espacios que se desea mover a la derecha.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    mensaje_x_y()
+//
+//      Hace todo el trabajo de colocar el texto y escribirlo sin saltar de línea.
+//
+////////////////////////////////////////////////////////////////////////////////
+
 void mostrar_x_y (char msjtxt[], int nfils, int ncols)
 {
   mensaje_x_y (msjtxt, nfils, ncols, FALSE);
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void escribir (char msjtxt[]);
+//
+//  USO:
+//
+//    Programa que sirve para poner un texto en la pantalla de forma directa.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función escribir_x_y() y funciona igual que "mostrar". 
+//    Pone los valores de posición a cero (0, 0) para mostrar el texto justo donde 
+//    esté el cursor en ese momento.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      La frase o texto que se desea poner en la pantalla.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    escribir_x_y()
+//
+//      Se le pasa el trabajo poniendo la posición en el origen (0, 0).
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void escribir (char msjtxt[])
 {
@@ -675,11 +926,85 @@ void escribir (char msjtxt[])
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void escribir_x_y (char msjtxt[], int nfils, int ncols);
+//
+//  USO:
+//
+//    Programa que pone un texto en pantalla en una fila y columna determinadas.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función mensaje_x_y(). Manda el texto junto con las 
+//    filas y columnas para colocarse, y pone la opción de nueva línea a FALSE 
+//    para que el cursor se quede pegado al final del texto.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      El texto que se va a mostrar en la pantalla.
+//    nfils
+//
+//      Líneas que va a bajar el cursor hacia abajo.
+//    ncols
+//
+//      Espacios que se va a mover el cursor hacia la derecha.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    mensaje_x_y()
+//
+//      Llama a esta función para colocar el mensaje en su sitio exacto.
+//
+////////////////////////////////////////////////////////////////////////////////
+
 void escribir_x_y (char msjtxt[], int nfils, int ncols)
 {
   mensaje_x_y (msjtxt, nfils, ncols, FALSE);
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void imprimir (char msjtxt[]);
+//
+//  USO:
+//
+//    Programa que sirve para imprimir un mensaje sin cambiar de fila ni columna.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función imprimir_x_y() con los valores fijados a (0, 0). 
+//    Es otro sinónimo o nombre diferente para hacer la misma acción de mostrar un 
+//    texto de forma directa en pantalla.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      El mensaje de texto que va a salir por la pantalla.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    imprimir_x_y()
+//
+//      Le delega la carga pasándole la posición en cero.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void imprimir (char msjtxt[])
 {
@@ -687,17 +1012,147 @@ void imprimir (char msjtxt[])
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void imprimir_x_y (char msjtxt[], int nfils, int ncols);
+//
+//  USO:
+//
+//    Programa que sirve para imprimir un mensaje moviéndolo a una fila y columna.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función mensaje_x_y(). Se usa para colocar el texto 
+//    en los márgenes que se indiquen y se asegura de que la opción de bajar de 
+//    línea al final esté desactivada mediante un FALSE.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      El texto o frase listo para salir en pantalla.
+//    nfils
+//
+//      Las filas que se desee que baje antes de escribir.
+//    ncols
+//
+//      Las columnas o espacios hacia la derecha.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    mensaje_x_y()
+//
+//      Llama al programa principal de mensajes para mostrar el texto.
+//
+////////////////////////////////////////////////////////////////////////////////
+
 void imprimir_x_y (char msjtxt[], int nfils, int ncols)
 {
   mensaje_x_y (msjtxt, nfils, ncols, FALSE);
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void mensaje (char msjtxt[], int nfils, int ncols);
+//
+//  USO:
+//
+//    Programa que saca un mensaje por pantalla indicando sus filas y columnas.
+//
+//  DETALLES:
+//
+//    Es un envoltorio directo de la función mensaje_x_y(). Hace exactamente lo mismo, 
+//    pero está pensado para usarse cuando no se quiera escribir a mano el último 
+//    parámetro de salto de línea, poniéndolo siempre como FALSE.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      El mensaje de texto que se requiere que se muestre.
+//    nfils
+//
+//      Número de filas para bajar el texto en vertical.
+//    ncols
+//
+//      Número de espacios para mover el texto en horizontal.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    mensaje_x_y()
+//
+//      Función principal a la que se le pasa el mensaje y las posiciones.
+//
+////////////////////////////////////////////////////////////////////////////////
+
 void mensaje (char msjtxt[], int nfils, int ncols)
 {
   mensaje_x_y (msjtxt, nfils, ncols, FALSE);
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void mensaje_x_y (char msjtxt[], int nfils, int ncols, boolean nuevalinea);
+//
+//  USO:
+//
+//    Programa principal que controla la posición y la escritura de los mensajes.
+//
+//  DETALLES:
+//
+//    Es la función que hace casi todo el trabajo de mostrar en pantalla. Primero 
+//    llama a saltar() para bajar las líneas pedidas, luego a tabular() para 
+//    moverse a la derecha, y después usa printf() para mostrar el texto. Al final, 
+//    mira si "nuevalinea" vale TRUE para hacer un salto extra de línea o no.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      La frase o cadena de texto que se va a mostrar en la pantalla.
+//    nfils
+//
+//      La cantidad de líneas que se va a mover hacia abajo.
+//    ncols
+//
+//      La cantidad de espacios o tabulaciones hacia la derecha.
+//    nuevalinea
+//
+//      Opción (TRUE o FALSE) para decidir si baja una línea al terminar de escribir.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    saltar()
+//
+//      Sirve para bajar el cursor las líneas que se le indiquen.
+//    tabular()
+//
+//      Sirve para mover el cursor los espacios indicados a la derecha.
+//    printf()
+//
+//      Es el programa estándar que se comunica con la pantalla para mostrar el texto.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void mensaje_x_y (char msjtxt[], int nfils, int ncols, boolean nuevalinea)
 {
@@ -707,7 +1162,6 @@ void mensaje_x_y (char msjtxt[], int nfils, int ncols, boolean nuevalinea)
   
   if (nuevalinea)   printf("\n");   // ALTERNATIVA: if (nuevalinea)   putchar(ENTER);
 }
-
 
 void iniciaAleatorizador (void)
 {
@@ -856,6 +1310,59 @@ int pedirEntero (char msjtxt[], int ncols)
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    int pedirEnteroPositivo (char msjtxt[], int ncols, boolean mostrarerror);
+//
+//  USO:
+//
+//    Programa que pide un número entero por teclado y se asegura de que sea positivo.
+//
+//  DETALLES:
+//
+//    Muestra el texto de petición con los espacios a la derecha que se indiquen 
+//    y lee el número de la pantalla. Si el número introducido es menor que cero 
+//    y está activada la opción de errores, se muestra un mensaje avisando del 
+//    fallo. El bucle se repite una y otra vez hasta que el número sea válido.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      El texto o mensaje de petición que se va a mostrar en la pantalla.
+//    ncols
+//
+//      Número de espacios o columnas que se va a mover el texto a la derecha.
+//    mostrarerror
+//
+//      Opción para elegir si se desea mostrar el aviso de error (TRUE o FALSE).
+//
+//  VALOR DE SALIDA:
+//
+//    Devuelve el número entero positivo que se ha validado de forma correcta.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    mensaje()
+//
+//      Se usa para colocar y escribir la frase de petición del número.
+//    mostrar()
+//
+//      Pone los dos puntos pegados al final de la frase de petición.
+//    obtenerEntero()
+//
+//      Se encarga de leer el número que el usuario escribe en el teclado.
+//    nuevaLinea()
+//
+//      Sirve para dejar una separación bajando una línea en blanco.
+//    mensaje_x_y()
+//
+//      Muestra el texto de error en su fila y columna correspondientes.
+//
+////////////////////////////////////////////////////////////////////////////////
+
 int pedirEnteroPositivo (char msjtxt[], int ncols, boolean mostrarerror)
 {
   int num;
@@ -881,6 +1388,66 @@ int pedirEnteroPositivo (char msjtxt[], int ncols, boolean mostrarerror)
   return num;
 }
 
+
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    int pedirEnteroIntervalo (char msjtxt[], int ncols, boolean mostrarerror, int min, int max);
+//
+//  USO:
+//
+//    Programa que pide un número entero por teclado y se asegura de que esté en un rango.
+//
+//  DETALLES:
+//
+//    Muestra el texto de petición con los espacios a la derecha que se indiquen 
+//    y enseña los límites mínimo y máximo permitidos. Si el número no está dentro 
+//    del rango y está activada la opción de errores, se muestra un mensaje avisando 
+//    del fallo. El bucle se repite una y otra vez hasta que el dato sea válido.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      El texto o mensaje de petición que se va a mostrar en la pantalla.
+//    ncols
+//
+//      Número de espacios o columnas que se va a mover el texto a la derecha.
+//    mostrarerror
+//
+//      Opción para elegir si se desea mostrar el aviso de error (TRUE o FALSE).
+//    min
+//
+//      Valor mínimo que se puede introducir en el programa.
+//    max
+//
+//      Valor máximo que se puede introducir en el programa.
+//
+//  VALOR DE SALIDA:
+//
+//    Devuelve el número entero validado dentro del intervalo correcto.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    mensaje()
+//
+//      Se usa para colocar y escribir la frase de petición del número.
+//    printf()
+//
+//      Es el programa estándar que se usa para enseñar los límites del rango.
+//    obtenerEntero()
+//
+//      Se encarga de leer el número que el usuario escribe en el teclado.
+//    nuevaLinea()
+//
+//      Sirve para dejar una separación bajando una línea en blanco.
+//    mensaje_x_y()
+//
+//      Muestra el texto de error en su fila y columna correspondientes.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 int pedirEnteroIntervalo (char msjtxt[], int ncols, boolean mostrarerror, int min, int max)
 {
@@ -908,6 +1475,65 @@ int pedirEnteroIntervalo (char msjtxt[], int ncols, boolean mostrarerror, int mi
   return num;
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    int pedirLetra (char msjtxt[], int ncols, boolean mostrarerror, char letra);
+//
+//  USO:
+//
+//    Programa que pide un carácter por teclado y se asegura de que sea una letra concreta.
+//
+//  DETALLES:
+//
+//    Pasa la letra buscada a mayúsculas y enseña el mensaje de petición movido a la 
+//    derecha. Lee el carácter del usuario, lo pasa a mayúsculas para comparar de forma 
+//    fácil y mira si coincide con el esperado. Si falla y se activa la opción de errores, 
+//    se muestra el aviso por pantalla. Se repite hasta recibir la letra exacta.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      El texto o mensaje de petición que se va a mostrar en la pantalla.
+//    ncols
+//
+//      Número de espacios o columnas que se va a mover el texto a la derecha.
+//    mostrarerror
+//
+//      Opción para elegir si se desea mostrar el aviso de error (TRUE o FALSE).
+//    letra
+//
+//      Carácter o letra específica que se obliga a introducir al usuario.
+//
+//  VALOR DE SALIDA:
+//
+//    Devuelve la letra validada de forma correcta en formato de mayúsculas.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    toupper()
+//
+//      Función del sistema que convierte cualquier letra minúscula en mayúscula.
+//    mensaje()
+//
+//      Se usa para colocar y escribir la frase de petición de la letra.
+//    mostrar()
+//
+//      Pone los dos puntos pegados al final de la frase de petición.
+//    obtenerLetra()
+//
+//      Se encarga de leer el carácter que el usuario escribe en el teclado.
+//    nuevaLinea()
+//
+//      Sirve para dejar una separación bajando una línea en blanco.
+//    mensaje_x_y()
+//
+//      Muestra el texto de error en su fila y columna correspondientes.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 int pedirLetra (char msjtxt[], int ncols, boolean mostrarerror, char letra)
 {
@@ -939,6 +1565,62 @@ int pedirLetra (char msjtxt[], int ncols, boolean mostrarerror, char letra)
 }
 
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    int pedirConfirmacion (char msjtxt[], int ncols, boolean mostrarerror);
+//
+//  USO:
+//
+//    Programa que pide una respuesta afirmativa o negativa a través de las macros SI y NO.
+//
+//  DETALLES:
+//
+//    Muestra el texto de consulta junto con los caracteres válidos de respuesta. Lee el 
+//    teclado y pasa la letra a mayúsculas para evitar fallos con los cambios de tamaño. 
+//    Si la respuesta no es igual a la macro SI ni a la macro NO, enseña un mensaje de error 
+//    siempre que esté activado el aviso. El proceso continúa hasta recibir una de las dos.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      El texto o mensaje de confirmación que se va a mostrar en la pantalla.
+//    ncols
+//
+//      Número de espacios o columnas que se va a mover el texto a la derecha.
+//    mostrarerror
+//
+//      Opción para elegir si se desea mostrar el aviso de error (TRUE o FALSE).
+//
+//  VALOR DE SALIDA:
+//
+//    Devuelve el carácter de confirmación definitivo que coincide con SI o con NO.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    mensaje()
+//
+//      Se usa para colocar y escribir la frase de consulta en la pantalla.
+//    printf()
+//
+//      Es el programa estándar que se usa para enseñar las opciones válidas de respuesta.
+//    obtenerLetra()
+//
+//      Se encarga de leer el carácter que el usuario escribe en el teclado.
+//    toupper()
+//
+//      Función del sistema que convierte cualquier letra minúscula en mayúscula.
+//    nuevaLinea()
+//
+//      Sirve para dejar una separación bajando una línea en blanco.
+//    mensaje_x_y()
+//
+//      Muestra el texto de error en su fila y columna correspondientes.
+//
+////////////////////////////////////////////////////////////////////////////////
+
 int pedirConfirmacion (char msjtxt[], int ncols, boolean mostrarerror)
 {
   char letra;
@@ -965,6 +1647,7 @@ int pedirConfirmacion (char msjtxt[], int ncols, boolean mostrarerror)
   
   return letra;
 }
+
 
 
 boolean validarLetraUnica (char original, char dada, boolean sensibleamayusculas)

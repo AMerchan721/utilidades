@@ -71,6 +71,37 @@ void esperarINTRO (void)
   vaciarBuffer();
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void descartarEntrada (void);
+//
+//  USO:
+//
+//    Programa que produce una espera hasta que se pulse INTRO.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función vaciarBuffer(), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    Ninguno
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    vaciarBuffer()
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void descartarEntrada (void)
 {
@@ -164,12 +195,43 @@ void borrarPantalla (void)
   limpiarPantalla();
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void limpiarPantalla (void);
+//
+//  USO:
+//
+//    Programa que "limpia" o borra la pantalla del terminal.
+//
+//  DETALLES:
+//
+//    El programa usa la función prefabricada system(BORRAR). Esta función
+//    tiene como parámetro BORRAR, que está definida según se esté en Windows
+//    o en Linux.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    Ninguno
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    system(BORRAR)
+//
+//      Es el programa estándar (prefabricado) que hace la logística de 
+//      borrar la pantalla tras una acción.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void limpiarPantalla (void)
 {
   system(BORRAR);
 }
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -259,24 +321,160 @@ void abajo (int nfils)
   bajar(nfils);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void saltar (int nfils);
+//
+//  USO:
+//
+//    Permite bajar el cursor en la pantalla, tantas líneas (o filas, en este caso) como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función limpiarPantalla(), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    nfilas
+//
+//      Variable entera que recibirá del exterior el número de filas
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    bajar(nfils)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void saltar (int nfils)
 {
   bajar(nfils);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void desplazarFils (int nfils);
+//
+//  USO:
+//
+//    Permite bajar el cursor en la pantalla, tantas líneas (o filas, en este caso) como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función limpiarPantalla(), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    nfilas
+//
+//      Variable entera que recibirá del exterior el número de filas
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    bajar(nfils)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void desplazarFils (int nfils)
 {
   bajar(nfils);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void desplazarV (int nfils);
+//
+//  USO:
+//
+//    Permite bajar el cursor en la pantalla, tantas líneas (o filas, en este caso) como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función limpiarPantalla(), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    nfilas
+//
+//      Variable entera que recibirá del exterior el número de filas
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    bajar(nfils)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void desplazarV (int nfils)
 {
   bajar(nfils);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void desplazarY (int nfils);
+//
+//  USO:
+//
+//    Permite bajar el cursor en la pantalla, tantas líneas (o filas, en este caso) como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función limpiarPantalla(), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    nfilas
+//
+//      Variable entera que recibirá del exterior el número de filas
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    bajar(nfils)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void desplazarY (int nfils)
 {
@@ -291,7 +489,7 @@ void desplazarY (int nfils)
 //
 //  USO:
 //
-//    Permite desplazar hacia la derecha el cursor en la pantalla, tantas tabulacones como se le indique.
+//    Permite desplazar hacia la derecha el cursor en la pantalla, tantas tabulacIones como se le indique.
 //
 //  DETALLES:
 //
@@ -369,24 +567,160 @@ void derecha (int ncols)
   indentar(ncols);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void tabular (int ncols);
+//
+//  USO:
+//
+//    Permite desplazar hacia la derecha el cursor en la pantalla, tantas tabulaciones como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función indentar(ncolumnas), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    ncols
+//
+//      Variable entera que recibirá del exterior el número de columnas (tabulaciones)
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    indentar(ncols)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void tabular (int ncols)
 {
   indentar(ncols);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void desplazarCols (int ncols);
+//
+//  USO:
+//
+//    Permite desplazar hacia la derecha el cursor en la pantalla, tantas tabulaciones como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función indentar(ncolumnas), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    ncols
+//
+//      Variable entera que recibirá del exterior el número de columnas (tabulaciones)
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    indentar(ncols)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void desplazarCols (int ncols)
 {
   indentar(ncols);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void desplazarX (int ncols);
+//
+//  USO:
+//
+//    Permite desplazar hacia la derecha el cursor en la pantalla, tantas tabulaciones como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función indentar(ncolumnas), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    ncols
+//
+//      Variable entera que recibirá del exterior el número de columnas (tabulaciones)
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    indentar(ncols)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void desplazarX (int ncols)
 {
   indentar(ncols);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void desplazarH (int ncols);
+//
+//  USO:
+//
+//    Permite desplazar hacia la derecha el cursor en la pantalla, tantas tabulaciones como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función indentar(ncolumnas), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    ncols
+//
+//      Variable entera que recibirá del exterior el número de columnas (tabulaciones)
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    indentar(ncols)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void desplazarH (int ncols)
 {
@@ -490,12 +824,83 @@ void desplazar (int nfils, int ncols)
   posicionar(nfils, ncols);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void desplazarXY (int nfils, int ncols);
+//
+//  USO:
+//
+//    Permite desplazar hacia la derecha y hacia abajo el cursor en la pantalla, 
+//    tantas filas y columnas como se le indique.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función posicionar (int nfils, int ncols), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    nfils
+//
+//      Variable entera que recibirá del exterior el número de líneas
+//      que se va a desplazar el cursor hacia abajo.
+//
+//    ncols
+//
+//      Variable entera que recibirá del exterior el número de columnas (tabulaciones)
+//      que se va a desplazar el cursor hacia abajo.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    void posicionar (int nfils, int ncols)
+//
+//      Se delega toda la carga de trabajo a esta función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void desplazarXY (int nfils, int ncols)
 {
   posicionar(nfils, ncols);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void retardoSegundos (int segundosmax);
+//
+//  USO:
+//
+//    Permite "pausar" el programa la cantidad de segundos que se le indique.
+//
+//  DETALLES:
+//
+//    Pausa el programa tantos segundos como se le suministre como dato.
+//    Utiliza para ello el bucle "for" repetidas veces.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    segundosmax
+//
+//      Variable entera que recibirá del exterior el número de segundos que va a
+//      durar la pausa.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    No depende de ninguna función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void retardoSegundos (int segundosmax)
 {
@@ -511,6 +916,37 @@ void retardoSegundos (int segundosmax)
   }
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void retardoMilisegundos (int milisegundosmax);
+//
+//  USO:
+//
+//    Permite "pausar" el programa la cantidad de milisegundos que se le indique.
+//
+//  DETALLES:
+//
+//    Pausa el programa tantos milisegundos como se le suministre como dato.
+//    Utiliza para ello el bucle "for" repetidas veces.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    milisegundosmax
+//
+//      Variable entera que recibirá del exterior el número de milisegundos que va a
+//      durar la pausa.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    No depende de ninguna función.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void retardoMilisegundos (int milisegundosmax)
 {
@@ -523,6 +959,40 @@ void retardoMilisegundos (int milisegundosmax)
       for (j=0; j<1000; j++)   ;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void retrasoMilisegundos (int milisegundos)
+//
+//  USO:
+//
+//    Permite "pausar" el programa la cantidad de milisegundos que se le indique.
+//
+//  DETALLES:
+//
+//    Pausa el programa tantos milisegundos como se le suministre como dato.
+//    Utiliza para ello las funciones estándar de la librería <time.h>.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    milisegundos
+//
+//      Variable entera que recibirá del exterior el número de milisegundos que va a
+//      durar la pausa.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    clock()
+//
+//      Es una función estándar del lenguaje C que sirve para medir el 
+//      tiempo de uso de la CPU consumido por el programa desde que se inició.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 void retrasoMilisegundos (int milisegundos)
 {
@@ -538,6 +1008,43 @@ void retrasoMilisegundos (int milisegundos)
   } while (e<milisegundos);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void esperarSegundos (int segundos)
+//
+//  USO:
+//
+//    Permite "pausar" el programa la cantidad de segundos que se le indique.
+//
+//  DETALLES:
+//
+//    Pausa el programa tantos segundos como se le suministre como dato.
+//    Utiliza para ello la función sleep() o Sleep().
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    segundos
+//
+//      Variable entera que recibirá del exterior el número de segundos que va a
+//      durar la pausa.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    Sleep (int segundos)
+//
+//      Es una función estándar del lenguaje C que sirve para pausar o suspender 
+//      la ejecución del programa durante un tiempo determinado sin consumir recursos de la CPU. LO HACE EN WINDOWS.
+//    sleep (int segundos)
+//      
+//      Es una función estándar del lenguaje C que sirve para pausar o suspender 
+//      la ejecución del programa durante un tiempo determinado sin consumir recursos de la CPU. LO HACE EN UN SO DISTINTO A WINDOWS.
+////////////////////////////////////////////////////////////////////////////////
 
 void esperarSegundos (int segundos)
 {
@@ -548,6 +1055,43 @@ void esperarSegundos (int segundos)
   #endif
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void esperarMilisegundos (int milisegundos)
+//
+//  USO:
+//
+//    Permite "pausar" el programa la cantidad de milisegundos que se le indique.
+//
+//  DETALLES:
+//
+//    Pausa el programa tantos milisegundos como se le suministre como dato.
+//    Utiliza para ello la función sleep() o Sleep().
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    milisegundos
+//
+//      Variable entera que recibirá del exterior el número de milisegundos que va a
+//      durar la pausa.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    Sleep (int segundos)
+//
+//      Es una función estándar del lenguaje C que sirve para pausar o suspender 
+//      la ejecución del programa durante un tiempo determinado sin consumir recursos de la CPU. LO HACE EN WINDOWS.
+//    sleep (int segundos)
+//      
+//      Es una función estándar del lenguaje C que sirve para pausar o suspender 
+//      la ejecución del programa durante un tiempo determinado sin consumir recursos de la CPU. LO HACE EN UN SO DISTINTO A WINDOWS.
+////////////////////////////////////////////////////////////////////////////////
 
 void esperarMilisegundos (int milisegundos)
 {
@@ -1163,11 +1707,83 @@ void mensaje_x_y (char msjtxt[], int nfils, int ncols, boolean nuevalinea)
   if (nuevalinea)   printf("\n");   // ALTERNATIVA: if (nuevalinea)   putchar(ENTER);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    void iniciaAleatorizador (void);
+//
+//  USO:
+//
+//    Prepara el entorno del programa para generar números aleatorios.
+//
+//  DETALLES:
+//
+//    Establece la semilla inicial para el algoritmo matemático de números 
+//    pseudoaleatorios. Utiliza el reloj interno del sistema operativo para 
+//    obtener un valor cambiante segundo a segundo. Esto garantiza que la 
+//    secuencia de números generados por el programa sea distinta en cada  
+//    ejecución.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    Ninguno.
+//
+//  VALOR DE SALIDA:
+//
+//    No devuelve ningún valor.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    time()
+//
+//      Obtiene el tiempo actual del sistema en segundos desde la época Unix.
+//    srand()
+//
+//      Configura la semilla de inicio para el generador pseudoaleatorio.
+//
+////////////////////////////////////////////////////////////////////////////////
+
 void iniciaAleatorizador (void)
 {
   srand(time(NULL));
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    int generaAleatorioEntero (int limite);
+//
+//  USO:
+//
+//    Genera de forma matemática un número entero al azar dentro de un rango determinado.
+//
+//  DETALLES:
+//
+//    Calcula un número pseudoaleatorio que comienza en 0 y llega hasta el valor del
+//    límite menos uno. Utiliza el operador de residuo (módulo) para recortar el 
+//    resultado de la función estándar de C. Requiere que la semilla del generador 
+//    haya sido establecida previamente para que los resultados varíen en cada ejecución.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    limite
+//
+//      El número entero que define el techo del rango. El valor máximo posible 
+//      que devolverá la función será este número menos uno (limite - 1).
+//
+//  VALOR DE SALIDA:
+//
+//    Devuelve un número entero (int) aleatorio comprendido entre 0 y limite - 1.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    rand()
+//
+//      Entrega un número entero pseudoaleatorio grande entre 0 y un máximo fijo (RAND_MAX).
+//
+////////////////////////////////////////////////////////////////////////////////
 
 int generaAleatorioEntero (int limite)
 {
@@ -1222,12 +1838,81 @@ int obtenerEntero (void)
   return valor;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    char obtenerCaracterASCII();
+//
+//  USO:
+//
+//    Funciona como un "intermediario" para capturar un carácter desde el teclado.
+//
+//  DETALLES:
+//
+//    Es un envoltorio de la función obtenerLetra(), a la cual delega todo el
+//    trabajo. Es una manera de crear "sinónimos" de acciones, es decir, de
+//    tener disponibles varios nombres para hacer lo mismo.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    Ninguno.
+//
+//  VALOR DE SALIDA:
+//
+//    Devuelve un dato de tipo carácter (char) que representa el símbolo o letra 
+//    capturado en el formato de codificación ASCII.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    obtenerLetra()
+//
+//      Es la función encargada de realizar la lectura real de la letra o símbolo.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 char obtenerCaracterASCII()
 {
   return obtenerLetra();
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    char obtenerLetra (void);
+//
+//  USO:
+//
+//    Lee un carácter del teclado y valida si pertenece al estándar ASCII estándar.
+//
+//  DETALLES:
+//
+//    Captura una entrada mediante getchar() y evalúa su código numérico. Si el 
+//    carácter se encuentra dentro del rango válido de ASCII (valores menores a 128), 
+//    lo acepta y lo prepara para su devolución. En caso contrario, lo descarta 
+//    asignando un carácter nulo. Al finalizar, si la entrada no fue la tecla ENTER, 
+//    limpia el flujo de entrada para eliminar caracteres sobrantes o acumulados.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    La función no recibe ningún parámetro de entrada (void).
+//
+//  VALOR DE SALIDA:
+//
+//    Devuelve un carácter (char). Si la entrada es válida, retorna el carácter leído; 
+//    si no es un ASCII válido, retorna el carácter nulo ('\0').
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    getchar()
+//
+//      Función estándar que detiene el programa para leer un carácter del teclado.
+//    vaciarBuffer()
+//
+//      Función interna que descarta los caracteres sobrantes en la entrada.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 char obtenerLetra (void)   // Sólo ASCII VÁLIDO.
 {
@@ -1648,7 +2333,49 @@ int pedirConfirmacion (char msjtxt[], int ncols, boolean mostrarerror)
   return letra;
 }
 
-
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    boolean validarLetraUnica (char original, char dada, boolean sensibleamayusculas);
+//
+//  USO:
+//
+//    Compara dos caracteres para verificar si representan la misma letra.
+//
+//  DETALLES:
+//
+//    Analiza la igualdad entre un carácter original y uno recibido por el usuario. 
+//    Si el parámetro sensibleamayusculas se establece en FALSE, la función 
+//    transforma temporalmente ambas letras a mayúsculas antes de compararlas, 
+//    haciendo que caracteres como 'a' y 'A' se consideren iguales. Devuelve el 
+//    resultado de la evaluación como un valor booleano.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    original
+//
+//      El carácter de referencia o patrón guardado por el programa.
+//    dada
+//
+//      El carácter introducido por el usuario que se desea verificar.
+//    sensibleamayusculas
+//
+//      Opción (TRUE o FALSE) para activar o desactivar la distinción estricta 
+//      entre letras mayúsculas y minúsculas.
+//
+//  VALOR DE SALIDA:
+//
+//    Devuelve un valor booleano (boolean). Retorna TRUE si los caracteres coinciden 
+//    según las reglas establecidas, o FALSE en caso de que sean diferentes.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    toupper()
+//
+//      Función estándar que convierte un carácter en su equivalente en mayúscula.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 boolean validarLetraUnica (char original, char dada, boolean sensibleamayusculas)
 {
@@ -1661,6 +2388,51 @@ boolean validarLetraUnica (char original, char dada, boolean sensibleamayusculas
   return (original == dada);
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    boolean validarLetraConjunto (char letra, char seleccion[], boolean sensibleamayusculas);
+//
+//  USO:
+//
+//    Verifica si un carácter específico se encuentra dentro de una lista o cadena de texto.
+//
+//  DETALLES:
+//
+//    Recorre uno a uno los caracteres de un arreglo dinámico utilizando un bucle
+//    for. En cada iteración, invoca a la función validarLetraUnica() para comparar
+//    la letra buscada con la posición actual del arreglo. Si encuentra una coincidencia,
+//    activa la bandera de resultado en TRUE e interrumpe el ciclo de inmediato mediante
+//    un break para optimizar el tiempo de ejecución.
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    letra
+//
+//      El carácter individual que el programa desea buscar o validar.
+//    seleccion[]
+//
+//      El arreglo o cadena de caracteres que contiene el grupo de letras permitidas.
+//    sensibleamayusculas
+//
+//      Opción (TRUE o FALSE) para decidir si se diferencia entre mayúsculas y minúsculas.
+//
+//  VALOR DE SALIDA:
+//
+//    Devuelve un valor booleano (boolean). Devuelve TRUE si la letra existe dentro 
+//    del conjunto, o FALSE si se termina el recorrido sin encontrar coincidencia.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    strlen()
+//
+//      Función estándar que calcula la longitud total de la cadena de texto dada.
+//    validarLetraUnica()
+//
+//      Función que compara de forma individual dos letras bajo ciertas condiciones.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 boolean validarLetraConjunto (char letra, char seleccion[], boolean sensibleamayusculas)
 {
@@ -1725,6 +2497,69 @@ char *cadenaOpcionesDisponibles (char entrada[])
   return textofinal;
 }
 
+////////////////////////////////////////////////////////////////////////////////
+//
+//  FUNCIÓN:
+//
+//    int pedirLetraSeleccion (char msjtxt[], int ncols, boolean mostrarerror, char seleccion[], boolean sensibleamayusculas);
+//
+//  USO:
+//
+//    Solicita repetidamente una letra al usuario hasta que introduzca una opción válida de una lista.
+//
+//  DETALLES:
+//
+//    Genera un bucle do-while que imprime un mensaje de solicitud junto 
+//    con la lista de opciones formateada por cadenaOpcionesDisponibles(). Lee la 
+//    entrada con obtenerLetra() y evalúa si pertenece al conjunto permitido usando 
+//    validarLetraConjunto(). Si la entrada es inválida y 'mostrarerror' es TRUE, 
+//    despliega un aviso visual de error. Al romper el ciclo, libera la memoria dinámica 
+//    del texto de opciones y retorna la letra (en mayúscula si no es sensible al caso).
+//
+//  PARÁMETROS DE ENTRADA:
+//
+//    msjtxt
+//
+//      La frase o cadena de texto para pedirle el dato al usuario.
+//    ncols
+//
+//      La cantidad de espacios o tabulaciones hacia la derecha para alinear el menú.
+//    mostrarerror
+//
+//      Opción (TRUE o FALSE) para activar o desactivar un aviso visual si la opción es incorrecta.
+//    seleccion[]
+//
+//      El arreglo con el grupo original de caracteres permitidos para la validación.
+//    sensibleamayusculas
+//
+//      Opción (TRUE o FALSE) para determinar si se distingue estrictamente entre mayúsculas y minúsculas.
+//
+//  VALOR DE SALIDA:
+//
+//    Devuelve el código entero (int) correspondiente al carácter válido aceptado por el sistema.
+//
+//  FUNCIONES DE LAS QUE DEPENDE:
+//
+//    cadenaOpcionesDisponibles()
+//
+//      Genera una nueva cadena formateada con las opciones y reserva memoria dinámica para ella.
+//    mensaje() / mostrar() / printf() / nuevaLinea() / mensaje_x_y()
+//
+//      Funciones de interfaz encargadas de dar formato, espaciado e imprimir texto en la consola.
+//    obtenerLetra()
+//
+//      Captura y valida un carácter desde la entrada estándar del teclado.
+//    validarLetraConjunto()
+//
+//      Comprueba si el carácter ingresado existe en el arreglo de opciones válidas.
+//    free()
+//
+//      Función estándar que libera el bloque de memoria asignado dinámicamente a la cadena de opciones.
+//    toupper()
+//
+//      Función estándar que convierte la letra final a mayúscula si el sistema ignora las minúsculas.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 int pedirLetraSeleccion (char msjtxt[], int ncols, boolean mostrarerror, char seleccion[], boolean sensibleamayusculas)
 {
